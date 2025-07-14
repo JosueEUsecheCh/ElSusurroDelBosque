@@ -660,7 +660,28 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ready_to_use_houses_0: 5538666112372936355
+      ready_to_use_houses_1: 9216869251756591376
+      ready_to_use_houses_10: -2317931975255681301
+      ready_to_use_houses_11: 7585532444738422116
+      ready_to_use_houses_12: -8392719606093363087
+      ready_to_use_houses_13: 5133984042062995179
+      ready_to_use_houses_14: -3303099795648575782
+      ready_to_use_houses_15: -6410143167406372363
+      ready_to_use_houses_16: -8954273980344430732
+      ready_to_use_houses_17: 5919582555204886552
+      ready_to_use_houses_18: 1894641123150811098
+      ready_to_use_houses_19: -5929535692359213251
+      ready_to_use_houses_2: 9155562364241376505
+      ready_to_use_houses_20: 3851777724129441000
+      ready_to_use_houses_3: -6307762455089827495
+      ready_to_use_houses_4: 929211715413588340
+      ready_to_use_houses_5: -8624333795382168195
+      ready_to_use_houses_6: 6084763815797894502
+      ready_to_use_houses_7: 8289421505166179630
+      ready_to_use_houses_8: -2428745444398702897
+      ready_to_use_houses_9: 3064069844996964719
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
