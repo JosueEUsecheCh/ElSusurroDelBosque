@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - object_pick
+  - general-events
+  - inventario
+  - slot
+  - inventario-com
+  - Lanten
   layers:
   - Default
   - TransparentFX
