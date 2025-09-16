@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 5d5c7bd27ab71b549b3d60b22ca9e856
+guid: 4a71a1dddc84c5a469c5048c5d81ea62
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5256369191657352735
-    second: inventory(ITEMS) _0001_0
+      213: -6145045776076846398
+    second: Mich side take L_0
+  - first:
+      213: -3922243756746132481
+    second: Mich side take L_1
+  - first:
+      213: 5914425598844444641
+    second: Mich side take L_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +81,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -126,13 +132,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: inventory(ITEMS) _0001_0
+      name: Mich side take L_0
       rect:
         serializedVersion: 2
-        x: 61
-        y: 166
-        width: 216
-        height: 270
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +147,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1e1d4f2d110ad07b0800000000000000
-      internalID: -5256369191657352735
+      spriteID: 2cacc6cac6968baa0800000000000000
+      internalID: -6145045776076846398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mich side take L_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff337ac85146199c0800000000000000
+      internalID: -3922243756746132481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mich side take L_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ef99950fb2441250800000000000000
+      internalID: 5914425598844444641
       vertices: []
       indices: 
       edges: []
@@ -151,7 +201,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 062fc28d823280b4594f9f92ce555145
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +211,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      inventory(ITEMS) _0001_0: -5256369191657352735
+      Mich side take L_0: -6145045776076846398
+      Mich side take L_1: -3922243756746132481
+      Mich side take L_2: 5914425598844444641
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
