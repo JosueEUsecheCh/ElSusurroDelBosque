@@ -1,59 +1,80 @@
 using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 
-
-//significa que este script se puede asignar a un GameObject en Unity.
 public class PickupItem : MonoBehaviour
 {
-    // Sirve para saber si el jugador está dentro del rango del objeto.
-    public GameObject obj;
-    public int cant = 1;
-    private bool playerInRange = false;
-    
+    public string itemName;     // Nombre del objeto
+    public Sprite itemIcon;     // Sprite que se mostrará en el inventario
+    private bool playerInRange = false; //Variable para decir si esta en rango o no 
 
     void Update()
     {
-        // Si el jugador está en rango y presiona "B" nyeyeyey
+        // Recoger el objeto si está en rango y presionas B
         if (playerInRange && Input.GetKeyDown(KeyCode.B))
         {
             PickUp();
         }
     }
 
-private void PickUp()
-{
-    GameObject[] inventario = GameObject.FindGameObjectWithTag("general-events").GetComponent<InventoryController>().getSlots();
-    for (int i = 0; i < inventario.Length; i++)
+    private void PickUp()
     {
-        if (!inventario[i])
+        // Encuentra el objeto del jugador por su tag
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        // Obtén una referencia al script PlayerMovement y al Animator
+        PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+        Animator playerAnimator = player.GetComponent<Animator>();
+
+        if (playerMovement != null && playerAnimator != null)
         {
-            GameObject.FindGameObjectWithTag("general-events").GetComponent<InventoryController>().setSlots(obj, i);
-            Destroy(gameObject);
-            break;
+            // Detén el movimiento del jugador
+            playerMovement.DisableMovement();
+
+            // Obtén la dirección del jugador para la animación
+            int direction = playerAnimator.GetInteger("direction"); // Asume que ya tienes una variable de dirección para caminar
+
+            // Configura los parámetros del Animator
+            playerAnimator.SetBool("isPickingUp", true);
+            playerAnimator.SetInteger("pickupDirection", direction);
         }
+
+        // Llama a una Coroutine para esperar a que termine la animación antes de destruir el objeto
+        StartCoroutine(WaitForAnimationAndDestroy());
     }
-}
-
-
-    private void OnTriggerEnter2D(Collider2D other)
+    private IEnumerator WaitForAnimationAndDestroy() //funcion para poner un temporizador al recoger objetos apara que de tiempo de recoger el objeto antes de destruirlo 
     {
-        // el if compara el collider del objeto si se acerca un gameobject con el tag Player
+        // Esperar un momento para que la animación de recoger se reproduzca
+        yield return new WaitForSeconds(0.5f); // Ajusta este valor según la duración de tu animación
+
+        InventoryController inventory = GameObject.FindGameObjectWithTag("general-events").GetComponent<InventoryController>();
+        if (inventory != null)
+        {
+            inventory.AddItem(itemName, itemIcon);
+        }
+        
+        // Vuelve a habilitar el movimiento del jugador
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            player.GetComponent<PlayerMovement>().EnableMovement();
+        }
+
+        Destroy(gameObject); // Elimina el objeto del mundo
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) // funcion de si esta en rango
+    {
         if (other.CompareTag("Player"))
         {
-            // Compara los collider de mitch y el objeto si esta en rango de recoger cambia la variable a true para poder recogerlo
-            playerInRange = true;
-
+            playerInRange = true; // Ahora el jugador puede recogerlo
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D other) // funcion de si no esta en rango
     {
         if (other.CompareTag("Player"))
         {
-            // Compara los collider de mitch y el objeto si no esta en rango de recoger cambia la variable a false y no podra recoger el objeto
-            playerInRange = false;
+            playerInRange = false; // Ya no está en rango
         }
     }
 }

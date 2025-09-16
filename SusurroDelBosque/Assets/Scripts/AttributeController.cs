@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class AttributeController : MonoBehaviour
 {
     public string itemName;         // Nombre del objeto
-    public Text nameText;           // Texto que mostrará el nombre (Legacy Text)
+    private Text nameText;           // Texto que mostrará el nombre (Legacy Text)
 
     public void setName(string name)
     {
