@@ -71,9 +71,15 @@ public class PlayerMovement : MonoBehaviour
             {
                 movement = Vector2.zero;
             }
+            UpdateAnimations();
+        }
+        else
+        {
+            movement = Vector2.zero;
+            animator.SetBool("isWalking", false);
         }
 
-        UpdateAnimations();
+        
 
         // Abrir / cerrar inventario con H
         if (Input.GetKeyUp(KeyCode.H) && inventario_com != null)
