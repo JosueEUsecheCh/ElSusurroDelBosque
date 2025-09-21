@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         {
             inventario_com = null;
         }
-        inventoryController = GameObject.FindGameObjectWithTag("general-events").GetComponent<InventoryController>();
+        inventoryController = GameObject.FindGameObjectWithTag("general-events").GetComponent<InventoryController>(); 
     }
 
     void Update()
@@ -79,42 +79,38 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("isWalking", false);
         }
 
-        
-
         // Abrir / cerrar inventario con H
         if (Input.GetKeyUp(KeyCode.H) && inventario_com != null)
         {
             inventoryVisible = !inventoryVisible;
-            inventario_com.SetActive(inventoryVisible);
-
             if (inventoryVisible)
             {
-                inventoryController.UpdateInventoryUI();
+                inventoryController.ShowInventory();
+                canMove = false; // Desactivamos el movimiento del personaje al abrir el inventario
             }
             else
             {
-                // limpiar la preselección al cerrar el inventario
-                inventoryController.SelectSlot(-1);
+                inventoryController.HideInventory();
+                canMove = true; // Reactivamos el movimiento al cerrar
             }
         }
 
         // Navegación en el inventario con las flechas
         if (inventoryVisible)
         {
-
             if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
             {
-                int nextSlot = (inventoryController.selectedSlotIndex + 1) % 4; //mueve horizontalmente los espacios hacia la derecha
+                int nextSlot = (inventoryController.selectedSlotIndex + 1 + 4) % 4;
                 inventoryController.SelectSlot(nextSlot);
             }
             else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
             {
-                int prevSlot = (inventoryController.selectedSlotIndex - 1 + 4) % 4; //mueve horizontalmente los espacios hacia la izquierda
+                int prevSlot = (inventoryController.selectedSlotIndex - 1 + 4) % 4;
                 inventoryController.SelectSlot(prevSlot);
             }
             else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
             {
-                int prevRow = inventoryController.selectedSlotIndex - 2; // Mueve al slot de arriba
+                int prevRow = inventoryController.selectedSlotIndex - 2;
                 if (prevRow >= 0)
                 {
                     inventoryController.SelectSlot(prevRow);
@@ -122,15 +118,13 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
             {
-                int nextRow = inventoryController.selectedSlotIndex + 2; // Mueve al slot de abajo
+                int nextRow = inventoryController.selectedSlotIndex + 2;
                 if (nextRow < 4)
                 {
                     inventoryController.SelectSlot(nextRow);
                 }
             }
         }
-
-
     }
 
     void FixedUpdate()
@@ -143,7 +137,7 @@ public class PlayerMovement : MonoBehaviour
 
     void UpdateAnimations()
     {
-        if (movement != Vector2.zero) // funcion de comparacion de la variable movement para activar su animacion
+        if (movement != Vector2.zero)
         {
             animator.SetBool("isWalking", true);
 
@@ -169,17 +163,13 @@ public class PlayerMovement : MonoBehaviour
     }
     public void DisableMovement()
     {
-        //desactiva el movimiento para pickear el objeto 
         canMove = false;
         animator.SetBool("isWalking", false);
-
-
     }
 
     public void EnableMovement()
     {
         canMove = true;
         animator.SetBool("isPickingUp", false);
-        // La lógica de caminar se reanudará en el próximo Update y se desactiva la animacion pickup
     }
 }

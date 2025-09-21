@@ -5,6 +5,8 @@ public class PickupItem : MonoBehaviour
 {
     public string itemName;     // Nombre del objeto
     public Sprite itemIcon;     // Sprite que se mostrará en el inventario
+
+    public string itemDescription; // Descripcion del objeto
     private bool playerInRange = false; //Variable para decir si esta en rango o no 
 
     void Update()
@@ -49,7 +51,7 @@ public class PickupItem : MonoBehaviour
         InventoryController inventory = GameObject.FindGameObjectWithTag("general-events").GetComponent<InventoryController>();
         if (inventory != null)
         {
-            inventory.AddItem(itemName, itemIcon);
+            inventory.AddItem(itemName, itemIcon, itemDescription);
         }
         
         // Vuelve a habilitar el movimiento del jugador
