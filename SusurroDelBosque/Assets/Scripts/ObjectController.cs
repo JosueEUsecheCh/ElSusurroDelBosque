@@ -33,9 +33,9 @@ public class PickupItem : MonoBehaviour
             playerMovement.DisableMovement();
 
             // Obtén la dirección del jugador para la animación
-            int direction = playerAnimator.GetInteger("direction"); // Asume que ya tienes una variable de dirección para caminar
+            int direction = playerAnimator.GetInteger("direction"); //Llamamos la variable direction del animator
 
-            // Configura los parámetros del Animator
+            // Configurar los parámetros del Animator
             playerAnimator.SetBool("isPickingUp", true);
             playerAnimator.SetInteger("pickupDirection", direction);
         }

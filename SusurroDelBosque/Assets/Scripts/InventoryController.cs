@@ -23,7 +23,7 @@ public class InventoryController : MonoBehaviour
     public Image descriptionImage;
     public Text descriptionNameText;
     public Text descriptionText;
-    public GameObject descriptionPanel; // Nueva referencia al panel para ocultar/mostrar
+    public GameObject descriptionPanel; 
 
     // Referencia al contenedor del inventario para mostrar/ocultar
     public GameObject inventoryUI;
@@ -164,7 +164,7 @@ public class InventoryController : MonoBehaviour
             descriptionImage.enabled = false;
             descriptionNameText.enabled = false;
             descriptionText.enabled = false;
-            descriptionPanel.SetActive(false);
+            descriptionPanel.SetActive(true);
         }
     }
     

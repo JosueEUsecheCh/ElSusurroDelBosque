@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 movement = Vector2.zero;
             }
-            UpdateAnimations();
+            UpdateAnimations(); //Ejecutamos las animaciones de movimiento
         }
         else
         {
@@ -164,12 +164,12 @@ public class PlayerMovement : MonoBehaviour
     public void DisableMovement()
     {
         canMove = false;
-        animator.SetBool("isWalking", false);
+        animator.SetBool("isWalking", false); // Desactivar la animacion y  el movimiento  de mitch a la hora de pickear un objeto
     }
 
     public void EnableMovement()
     {
         canMove = true;
-        animator.SetBool("isPickingUp", false);
+        animator.SetBool("isPickingUp", false); //Desactivar la animacion del pikear un objeto y activar el movimiento
     }
 }
