@@ -1,82 +1,109 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PickupItem : MonoBehaviour
 {
-    public string itemName;     // Nombre del objeto
-    public Sprite itemIcon;     // Sprite que se mostrará en el inventario
+    public string itemName;
+    public Sprite itemIcon;
+    [TextArea]
+    public string itemDescription;
+    public string prefabName;
 
-    public string itemDescription; // Descripcion del objeto
-    private bool playerInRange = false; //Variable para decir si esta en rango o no 
+    private GameObject player;
+    private bool playerIsInRange = false;
+    private InventoryController inventoryController;
+
+    void Start()
+    {
+        // intanciamos InventoryController
+        inventoryController = FindFirstObjectByType<InventoryController>();
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            player = other.gameObject;
+            playerIsInRange = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            player = null;
+            playerIsInRange = false;
+        }
+    }
 
     void Update()
     {
-        // Recoger el objeto si está en rango y presionas B
-        if (playerInRange && Input.GetKeyDown(KeyCode.B))
+        if (playerIsInRange && Input.GetKeyDown(KeyCode.B))
+        {
+            if (IsPlayerStopped())
+            {
+                AttemptPickup();
+            }
+        }
+    }
+
+    private void AttemptPickup()
+    {
+        if (inventoryController != null && inventoryController.HasSpace())
         {
             PickUp();
         }
+        else
+        {
+            Debug.Log("Inventario lleno. No se puede recoger el ítem '" + itemName + "'.");
+        }
+    }
+
+    private bool IsPlayerStopped()
+    {
+        if (player != null)
+        {
+            PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+            if (playerMovement != null)
+            {
+                return player.GetComponent<Rigidbody2D>().linearVelocity.magnitude < 0.1f;
+            }
+        }
+        return false;
     }
 
     private void PickUp()
     {
-        // Encuentra el objeto del jugador por su tag
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-
-        // Obtén una referencia al script PlayerMovement y al Animator
         PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
         Animator playerAnimator = player.GetComponent<Animator>();
 
         if (playerMovement != null && playerAnimator != null)
         {
-            // Detén el movimiento del jugador
             playerMovement.DisableMovement();
-
-            // Obtén la dirección del jugador para la animación
-            int direction = playerAnimator.GetInteger("direction"); //Llamamos la variable direction del animator
-
-            // Configurar los parámetros del Animator
+            int direction = playerAnimator.GetInteger("direction"); 
             playerAnimator.SetBool("isPickingUp", true);
             playerAnimator.SetInteger("pickupDirection", direction);
         }
 
-        // Llama a una Coroutine para esperar a que termine la animación antes de destruir el objeto
         StartCoroutine(WaitForAnimationAndDestroy());
     }
-    private IEnumerator WaitForAnimationAndDestroy() //funcion para poner un temporizador al recoger objetos apara que de tiempo de recoger el objeto antes de destruirlo 
-    {
-        // Esperar un momento para que la animación de recoger se reproduzca
-        yield return new WaitForSeconds(0.5f); // Ajusta este valor según la duración de tu animación
 
-        InventoryController inventory = GameObject.FindGameObjectWithTag("general-events").GetComponent<InventoryController>();
-        if (inventory != null)
+    private IEnumerator WaitForAnimationAndDestroy()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        if (inventoryController != null)
         {
-            inventory.AddItem(itemName, itemIcon, itemDescription);
+            inventoryController.AddItem(itemName, itemIcon, itemDescription, prefabName);
         }
-        
-        // Vuelve a habilitar el movimiento del jugador
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
         if (player != null)
         {
             player.GetComponent<PlayerMovement>().EnableMovement();
         }
 
-        Destroy(gameObject); // Elimina el objeto del mundo
-    }
-
-    private void OnTriggerEnter2D(Collider2D other) // funcion de si esta en rango
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerInRange = true; // Ahora el jugador puede recogerlo
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other) // funcion de si no esta en rango
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerInRange = false; // Ya no está en rango
-        }
+        Destroy(gameObject); 
     }
 }
