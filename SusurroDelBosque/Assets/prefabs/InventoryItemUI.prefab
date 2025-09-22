@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 7255171458210822730}
   m_Layer: 5
   m_Name: InventoryItemUI
-  m_TagString: Lanten
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -184,3 +184,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iconImage: {fileID: 1566369156296714350}
   nameText: {fileID: 1560837835837095642}
+  itemName: 
+  itemDescription: 
+  itemIcon: {fileID: 0}
