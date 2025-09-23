@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
-
 public class PlayerMovement : MonoBehaviour
 {
     // Variables de movimiento
@@ -22,6 +21,10 @@ public class PlayerMovement : MonoBehaviour
     private InventoryController inventoryController; // Referencia al script que gestiona el inventario
     private bool canMove = true; // Booleano para activar o desactivar el movimiento del jugador
 
+    // Variables para el Cooldown
+    [Header("Item Cooldown")]
+    public float discardCooldown = 0.5f; // Tiempo de espera para soltar otro ítem
+    private float lastDiscardTime = -1f; // Almacena el tiempo en que se soltó el último ítem
     
     void Start()
     {
@@ -34,10 +37,10 @@ public class PlayerMovement : MonoBehaviour
         {
             inventario_com.SetActive(false);
         }
+        
         // Busca y obtiene la referencia al script InventoryController
         inventoryController = GameObject.FindGameObjectWithTag("general-events").GetComponent<InventoryController>();
     }
-
 
     void Update()
     {
@@ -82,27 +85,30 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Detección de entrada para el inventario
-        if (Input.GetKeyUp(KeyCode.H) && inventario_com != null)
+        if (Input.GetKeyUp(KeyCode.H) && inventario_com )
         {
-            
             inventoryVisible = !inventoryVisible; // Invierte el estado de visibilidad
             if (inventoryVisible)
             {
                 inventoryController.ShowInventory(); // Muestra el inventario
                 canMove = false; // Desactiva el movimiento del jugador
+
             }
             else
             {
                 HideInventoryAndEnableMovement(); // Oculta el inventario y activa el movimiento
+                
             }
         }
         
         // Detección de entrada para soltar un ítem
-        if (Input.GetKeyDown(KeyCode.M))
+        if (inventoryVisible && Input.GetKeyDown(KeyCode.M)&& Time.time > lastDiscardTime + discardCooldown)
         {
             if (inventoryController != null)
             {
                 inventoryController.DiscardSelectedItem(); // Llama al método para descartar el ítem
+                lastDiscardTime = Time.time; // Actualiza el tiempo del último descarte
+                
             }
         }
 
@@ -123,7 +129,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
             {
-                // Selecciona el slot de la fila de arriba OJO (si existe)
+                // Selecciona el slot de la fila de arriba (si existe)
                 int prevRow = inventoryController.selectedSlotIndex - 2;
                 if (prevRow >= 0)
                 {

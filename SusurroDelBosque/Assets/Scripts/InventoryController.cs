@@ -116,6 +116,7 @@ public class InventoryController : MonoBehaviour
         for (int i = 0; i < num_slots_max; i++)
         {
             Transform slotTransform = inventorySlotsUI.GetChild(i);
+            Image slotImage = slotTransform.GetComponent<Image>();
 
             // Si ya hay un ítem de UI en el slot, lo destruye para evitar duplicados.
             if (slotTransform.childCount > 0)
@@ -140,10 +141,11 @@ public class InventoryController : MonoBehaviour
             {
                 // Si el slot está vacío, asegura que la referencia al slot esté nula.
                 slots[i] = null;
+
             }
 
             // Cambia el color del fondo del slot para indicar si está seleccionado o no.
-            Image slotImage = slotTransform.GetComponent<Image>();
+            
             if (slotImage != null)
             {
                 if (i == selectedSlotIndex)
@@ -211,7 +213,7 @@ public class InventoryController : MonoBehaviour
             // Obtiene el nombre del prefab físico a instanciar.
             string discardedItemName = itemPrefabNames[selectedSlotIndex];
 
-            // Instancia el objeto físico primero.
+            // Instancia el objeto físico.
             InstantiatePhysicalItem(discardedItemName);
 
             //Limpia los datos del slot en los arrays.
@@ -219,6 +221,8 @@ public class InventoryController : MonoBehaviour
             itemIcons[selectedSlotIndex] = null;
             itemDescriptions[selectedSlotIndex] = null;
             slots[selectedSlotIndex] = null;
+
+            
 
             //Busca el siguiente ítem para seleccionar o deselecciona.
             int newSelectedIndex = -1;
@@ -239,6 +243,7 @@ public class InventoryController : MonoBehaviour
             if (player != null)
             {
                 FindFirstObjectByType<PlayerMovement>().EnableMovement();
+                player.GetComponent<PlayerMovement>().HideInventoryAndEnableMovement();
             }
         }
     }
