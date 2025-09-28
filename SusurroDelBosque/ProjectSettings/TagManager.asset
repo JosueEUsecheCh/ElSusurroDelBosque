@@ -10,6 +10,8 @@ TagManager:
   - slot
   - inventario-com
   - Lanten
+  - spawn
+  - DontDestroy
   layers:
   - Default
   - TransparentFX
