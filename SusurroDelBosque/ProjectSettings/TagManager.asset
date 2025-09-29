@@ -13,7 +13,7 @@ TagManager:
   - DontDestroy
   - spawn
   - Spawn_DesdeMain
-  - Spawn_DesdeBosque
+  - Spawn_DesdePlantaBaja
   layers:
   - Default
   - TransparentFX
