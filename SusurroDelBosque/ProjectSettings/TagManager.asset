@@ -10,8 +10,10 @@ TagManager:
   - slot
   - inventario-com
   - Lanten
-  - spawn
   - DontDestroy
+  - spawn
+  - Spawn_DesdeMain
+  - Spawn_DesdeBosque
   layers:
   - Default
   - TransparentFX
@@ -20,14 +22,14 @@ TagManager:
   - Water
   - UI
   - Ground
-  - Decoration
-  - 
+  - Wall
+  - WallFondo
+  - Objects
+  - WallFront
+  - WallExterior
   - Floor
-  - 
-  - 
-  - 
-  - 
   - Players
+  - Carpets
   - 
   - 
   - 

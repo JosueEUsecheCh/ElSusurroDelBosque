@@ -1,0 +1,1131 @@
+fileFormatVersion: 2
+guid: 91786648c5dc24e4daffac77039869b2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8857168623896440953
+    second: post apoc hatches and doors set updated_0
+  - first:
+      213: -8016233667466202494
+    second: post apoc hatches and doors set updated_1
+  - first:
+      213: -8919303245111848206
+    second: post apoc hatches and doors set updated_2
+  - first:
+      213: -2466356771633260389
+    second: post apoc hatches and doors set updated_3
+  - first:
+      213: -2906846746239650486
+    second: post apoc hatches and doors set updated_4
+  - first:
+      213: -448064089994629852
+    second: post apoc hatches and doors set updated_5
+  - first:
+      213: -1202862045564375273
+    second: post apoc hatches and doors set updated_6
+  - first:
+      213: -3296533887218425746
+    second: post apoc hatches and doors set updated_7
+  - first:
+      213: 1833497903144380153
+    second: post apoc hatches and doors set updated_8
+  - first:
+      213: -5757962199946032487
+    second: post apoc hatches and doors set updated_9
+  - first:
+      213: 84552085527650173
+    second: post apoc hatches and doors set updated_10
+  - first:
+      213: 8181149954737442216
+    second: post apoc hatches and doors set updated_11
+  - first:
+      213: 4453792789858478779
+    second: post apoc hatches and doors set updated_12
+  - first:
+      213: 434921406253593972
+    second: post apoc hatches and doors set updated_13
+  - first:
+      213: 9095101206913234369
+    second: post apoc hatches and doors set updated_14
+  - first:
+      213: -8071314165349591822
+    second: post apoc hatches and doors set updated_15
+  - first:
+      213: 5569837522887386336
+    second: post apoc hatches and doors set updated_16
+  - first:
+      213: 6717142765597778009
+    second: post apoc hatches and doors set updated_17
+  - first:
+      213: 1329512743617710869
+    second: post apoc hatches and doors set updated_18
+  - first:
+      213: -2601604689100235254
+    second: post apoc hatches and doors set updated_19
+  - first:
+      213: -214152908839728305
+    second: post apoc hatches and doors set updated_20
+  - first:
+      213: 5643013480084252708
+    second: post apoc hatches and doors set updated_21
+  - first:
+      213: -6157683752182477376
+    second: post apoc hatches and doors set updated_22
+  - first:
+      213: -771676316568344467
+    second: post apoc hatches and doors set updated_23
+  - first:
+      213: -2708016959253757929
+    second: post apoc hatches and doors set updated_24
+  - first:
+      213: 409132297521410799
+    second: post apoc hatches and doors set updated_25
+  - first:
+      213: -1995818708853575258
+    second: post apoc hatches and doors set updated_26
+  - first:
+      213: -634316033790093433
+    second: post apoc hatches and doors set updated_27
+  - first:
+      213: 11424126542151127
+    second: post apoc hatches and doors set updated_28
+  - first:
+      213: 1991119506763607103
+    second: post apoc hatches and doors set updated_29
+  - first:
+      213: 1676151973769385287
+    second: post apoc hatches and doors set updated_30
+  - first:
+      213: 6677878934575053644
+    second: post apoc hatches and doors set updated_31
+  - first:
+      213: -5255414956741922355
+    second: post apoc hatches and doors set updated_32
+  - first:
+      213: -5640001290139504411
+    second: post apoc hatches and doors set updated_33
+  - first:
+      213: -169127797282912796
+    second: post apoc hatches and doors set updated_34
+  - first:
+      213: 3810389726590608156
+    second: post apoc hatches and doors set updated_35
+  - first:
+      213: 8425990628081986554
+    second: post apoc hatches and doors set updated_36
+  - first:
+      213: 4988318791136720961
+    second: post apoc hatches and doors set updated_37
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: post apoc hatches and doors set updated_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 288
+        width: 57
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a423c67e6422e04da857a5f551ed3e7
+      internalID: -541286656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post apoc hatches and doors set updated_1
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 160
+        width: 59
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1a1e54f309c14941bdd8f6570e91eea
+      internalID: -1521576595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post apoc hatches and doors set updated_2
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 160
+        width: 59
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 145d661b0da9a02438c73874ab5aabdb
+      internalID: -306597496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post apoc hatches and doors set updated_3
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 160
+        width: 61
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6cf91b8806dddd45aa4a925e8a3bae4
+      internalID: -220688317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post apoc hatches and doors set updated_4
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 288
+        width: 28
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2c4d524886ec924eb5dcb17283da8a2
+      internalID: -1094318123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post apoc hatches and doors set updated_5
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 289
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c0fca7546cc8754db5fc1edd97acbc4
+      internalID: 121839823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post apoc hatches and doors set updated_6
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 256
+        width: 21
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2137f3a69d872774b969f4a63b162394
+      internalID: 1433245103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post apoc hatches and doors set updated_7
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 256
+        width: 16
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2551bb78b11ed5140a0b9b69a1ed118c
+      internalID: 1267349027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post apoc hatches and doors set updated_8
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 256
+        width: 16
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a16ac394bf2719d4e9a472bbcbed1a63
+      internalID: 146389299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post apoc hatches and doors set updated_9
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 256
+        width: 16
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40d00f8a15ce97a4598a413df40df85e
+      internalID: -1447383061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post apoc hatches and doors set updated_10
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 224
+        width: 57
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd2f285a2c76fa54394b4c62d700dd45
+      internalID: 1152175425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post apoc hatches and doors set updated_11
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 225
+        width: 28
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9c20f2dd92e62b4899688ea19d85d8b
+      internalID: 927585293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post apoc hatches and doors set updated_12
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 225
+        width: 28
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f404f2deb5295647ae8756155266620
+      internalID: -785148001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post apoc hatches and doors set updated_13
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 160
+        width: 114
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35bac7efe82b15846930357639fddb8c
+      internalID: 213351748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post apoc hatches and doors set updated_14
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 160
+        width: 57
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41adb33b027d31342b85052008257bb2
+      internalID: 1007478190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post apoc hatches and doors set updated_15
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 160
+        width: 28
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 493d91eaccafc6140b1320271c7f3647
+      internalID: -289958151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post apoc hatches and doors set updated_16
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 192
+        width: 31
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a795d7bb783d03145b2b349cff11dc9b
+      internalID: 786215115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post apoc hatches and doors set updated_17
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 160
+        width: 31
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fe0c0f737e6f1a459c0c1ceeccb602d
+      internalID: -2094123010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post apoc hatches and doors set updated_18
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 97
+        width: 29
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 536dd8c666a352e4b89e89702f2796e1
+      internalID: 1180496658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post apoc hatches and doors set updated_19
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 97
+        width: 29
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63da0d4d24c22dc45964212f65e6c3c0
+      internalID: -1415539629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post apoc hatches and doors set updated_20
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 97
+        width: 29
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57fbf504db4f1604f855c2a85703510c
+      internalID: -1364815806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post apoc hatches and doors set updated_21
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 128
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f44fb930b4525644b3cc2e90f2f3967
+      internalID: -1551939149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post apoc hatches and doors set updated_22
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 128
+        width: 87
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a552f4d4e6ce8434f90a4b5bc373b5bf
+      internalID: -603760245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post apoc hatches and doors set updated_23
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 130
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec8e2e765af7d0c43bc6e377262f07d6
+      internalID: -1484647978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post apoc hatches and doors set updated_24
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 133
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7aa991ad204afc8428d42326b14e40da
+      internalID: 947196384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post apoc hatches and doors set updated_25
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 64
+        width: 114
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff761a52b8275da4799bb68334830edc
+      internalID: 166045696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post apoc hatches and doors set updated_26
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 97
+        width: 16
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 427dfc39f2777164cb90689ad122ef1e
+      internalID: -901465030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post apoc hatches and doors set updated_27
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 0
+        width: 118
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 769d2a02345885a40a96f3f865c0d0b2
+      internalID: 44025486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post apoc hatches and doors set updated_28
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 96
+        width: 47
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50f1c763a4581e944a64237ca6cea12e
+      internalID: 478450373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post apoc hatches and doors set updated_29
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 65
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 074bdba6ab6962449bb0fb321b930163
+      internalID: -1101352498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post apoc hatches and doors set updated_30
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 65
+        width: 29
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77992629ba8b0244f8ab2740a0f7e4c7
+      internalID: 871976937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post apoc hatches and doors set updated_31
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 65
+        width: 29
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4619bb8751acefe43ba0938a959e77eb
+      internalID: 1170146431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post apoc hatches and doors set updated_32
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 64
+        width: 29
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc2ee00f8ecfdb546a372e189dd7a6e0
+      internalID: -1172898720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post apoc hatches and doors set updated_33
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 64
+        width: 47
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d85780a74d5415c40bb2545b37bf7d8e
+      internalID: -2123582042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post apoc hatches and doors set updated_34
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 0
+        width: 118
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0856cfbe29e7bc4fbf454e3227e23c3
+      internalID: -158654983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post apoc hatches and doors set updated_35
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 2
+        width: 11
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a08deb90f1a00b0408d4794ae50fbca8
+      internalID: -716705925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post apoc hatches and doors set updated_36
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 2
+        width: 11
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e62770eba0f0b94c8264a07d9327b58
+      internalID: -1214025217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post apoc hatches and doors set updated_37
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 2
+        width: 11
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7297682fc4810a4988b50b1cf0f7423
+      internalID: 1642366361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: b84069f371b04904da777c19cd651ccd
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      post apoc hatches and doors set updated_0: -541286656
+      post apoc hatches and doors set updated_1: -1521576595
+      post apoc hatches and doors set updated_10: 1152175425
+      post apoc hatches and doors set updated_11: 927585293
+      post apoc hatches and doors set updated_12: -785148001
+      post apoc hatches and doors set updated_13: 213351748
+      post apoc hatches and doors set updated_14: 1007478190
+      post apoc hatches and doors set updated_15: -289958151
+      post apoc hatches and doors set updated_16: 786215115
+      post apoc hatches and doors set updated_17: -2094123010
+      post apoc hatches and doors set updated_18: 1180496658
+      post apoc hatches and doors set updated_19: -1415539629
+      post apoc hatches and doors set updated_2: -306597496
+      post apoc hatches and doors set updated_20: -1364815806
+      post apoc hatches and doors set updated_21: -1551939149
+      post apoc hatches and doors set updated_22: -603760245
+      post apoc hatches and doors set updated_23: -1484647978
+      post apoc hatches and doors set updated_24: 947196384
+      post apoc hatches and doors set updated_25: 166045696
+      post apoc hatches and doors set updated_26: -901465030
+      post apoc hatches and doors set updated_27: 44025486
+      post apoc hatches and doors set updated_28: 478450373
+      post apoc hatches and doors set updated_29: -1101352498
+      post apoc hatches and doors set updated_3: -220688317
+      post apoc hatches and doors set updated_30: 871976937
+      post apoc hatches and doors set updated_31: 1170146431
+      post apoc hatches and doors set updated_32: -1172898720
+      post apoc hatches and doors set updated_33: -2123582042
+      post apoc hatches and doors set updated_34: -158654983
+      post apoc hatches and doors set updated_35: -716705925
+      post apoc hatches and doors set updated_36: -1214025217
+      post apoc hatches and doors set updated_37: 1642366361
+      post apoc hatches and doors set updated_4: -1094318123
+      post apoc hatches and doors set updated_5: 121839823
+      post apoc hatches and doors set updated_6: 1433245103
+      post apoc hatches and doors set updated_7: 1267349027
+      post apoc hatches and doors set updated_8: 146389299
+      post apoc hatches and doors set updated_9: -1447383061
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
