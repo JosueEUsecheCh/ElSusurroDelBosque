@@ -960,7 +960,40 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      PostApoc_Workshop_RoomTiles_0: 9098468295206533193
+      PostApoc_Workshop_RoomTiles_1: -3772817123701919543
+      PostApoc_Workshop_RoomTiles_10: -5598894816536782880
+      PostApoc_Workshop_RoomTiles_11: -1143364879935561051
+      PostApoc_Workshop_RoomTiles_12: 4751248741804058641
+      PostApoc_Workshop_RoomTiles_13: 8214368466212564486
+      PostApoc_Workshop_RoomTiles_14: -3585773815462058918
+      PostApoc_Workshop_RoomTiles_15: 2365290088594738476
+      PostApoc_Workshop_RoomTiles_16: -7282767834221489718
+      PostApoc_Workshop_RoomTiles_17: -3256013349312018649
+      PostApoc_Workshop_RoomTiles_18: -4776920764262025402
+      PostApoc_Workshop_RoomTiles_19: -9892291957909902
+      PostApoc_Workshop_RoomTiles_2: 8850369966198852471
+      PostApoc_Workshop_RoomTiles_20: -6513414661434023664
+      PostApoc_Workshop_RoomTiles_21: -4779502297144869075
+      PostApoc_Workshop_RoomTiles_22: 5100923795570570247
+      PostApoc_Workshop_RoomTiles_23: -533361393978486418
+      PostApoc_Workshop_RoomTiles_24: -3702907971194545745
+      PostApoc_Workshop_RoomTiles_25: 8412856727792904672
+      PostApoc_Workshop_RoomTiles_26: 7908346445753514843
+      PostApoc_Workshop_RoomTiles_27: 3201750396202722946
+      PostApoc_Workshop_RoomTiles_28: 5200879374282896573
+      PostApoc_Workshop_RoomTiles_29: 6609858814769091447
+      PostApoc_Workshop_RoomTiles_3: -3955141783530744617
+      PostApoc_Workshop_RoomTiles_30: 6536125785925381985
+      PostApoc_Workshop_RoomTiles_31: -1895507104548476431
+      PostApoc_Workshop_RoomTiles_32: -2604522824449431411
+      PostApoc_Workshop_RoomTiles_4: -657812182265078485
+      PostApoc_Workshop_RoomTiles_5: 4579219454896926949
+      PostApoc_Workshop_RoomTiles_6: -7463409577009512985
+      PostApoc_Workshop_RoomTiles_7: 119941946739915754
+      PostApoc_Workshop_RoomTiles_8: 9140748004789740258
+      PostApoc_Workshop_RoomTiles_9: 4828577740022035305
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
