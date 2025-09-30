@@ -1,15 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
-public class InputSwitch : MonoBehaviour, IPointerClickHandler
+public class InputSwitch : MonoBehaviour
 {
-    // Asigna el objeto ElectricBox con el script LogicCircuit en el Inspector
-    public LogicCircuit circuitManager;
-    
     private Image switchImage;
-    
-    // Sprites para el estado ON (True) y OFF (False)
+
+    // Sprites opcionales para el estado ON/OFF
     public Sprite spriteON;
     public Sprite spriteOFF;
 
@@ -17,51 +13,29 @@ public class InputSwitch : MonoBehaviour, IPointerClickHandler
     {
         switchImage = GetComponent<Image>();
         
-        if (circuitManager == null)
-        {
-            Debug.LogError("InputSwitch: LogicCircuit no asignado. Asigna el ElectricBox.");
-            return;
-        }
-        
-        // Inicializa el visual con el estado actual de inputC
-        UpdateVisual(circuitManager.inputC);
+        // Inicializa apagada
+        SetState(false);
     }
 
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        Debug.Log("¡CLIC DETECTADO en Input C! Nuevo estado: " + !circuitManager.inputC);
-        if (circuitManager == null) return;
-
-        // 1. Invierte el estado de la entrada C
-        bool newState = !circuitManager.inputC;
-        circuitManager.inputC = newState;
-
-        // 2. Actualiza el visual del interruptor
-        UpdateVisual(newState);
-
-        // 3. Recalcula el circuito con el nuevo valor de C
-        circuitManager.CalculateCircuit();
-    }
-
-    private void UpdateVisual(bool state)
+    // 🔹 Método público para encender/apagar la lámpara
+    public void SetState(bool state)
     {
         if (switchImage != null)
         {
-            // Cambia el sprite según el estado (ON/OFF)
             if (state && spriteON != null)
             {
                 switchImage.sprite = spriteON;
-                switchImage.color = Color.green; // O algún color que indique ON
+                switchImage.color = Color.white;
             }
             else if (!state && spriteOFF != null)
             {
                 switchImage.sprite = spriteOFF;
-                switchImage.color = Color.red; // O algún color que indique OFF
+                switchImage.color = Color.white;
             }
-            // Si no hay sprites, usa un color base
             else
             {
-                switchImage.color = state ? Color.green : Color.red;
+                // Si no usas sprites, solo cambia color
+                switchImage.color = state ? Color.white : Color.white;
             }
         }
     }

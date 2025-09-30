@@ -31,7 +31,8 @@ Transform:
   m_LocalPosition: {x: 0.88, y: -3.82, z: 0}
   m_LocalScale: {x: 0.3483906, y: 0.26971722, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2978750489501243389}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1754077705504859737
@@ -151,3 +152,65 @@ MonoBehaviour:
   itemIcon: {fileID: -7472880724341779653, guid: 971ea41b80acd4c41b31122a325234c9, type: 3}
   itemDescription: 'Lintena de bronce y a gasoil '
   prefabName: pick_Lantern
+--- !u!1001 &6090494958209136009
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 977905837583716140}
+    m_Modifications:
+    - target: {fileID: 2318727665425757177, guid: e8585a7fb5aecf94084cf8100a639868, type: 3}
+      propertyPath: m_Name
+      value: pick_pista
+      objectReference: {fileID: 0}
+    - target: {fileID: 9066710512911442548, guid: e8585a7fb5aecf94084cf8100a639868, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -22.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 9066710512911442548, guid: e8585a7fb5aecf94084cf8100a639868, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -64.049
+      objectReference: {fileID: 0}
+    - target: {fileID: 9066710512911442548, guid: e8585a7fb5aecf94084cf8100a639868, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9066710512911442548, guid: e8585a7fb5aecf94084cf8100a639868, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9066710512911442548, guid: e8585a7fb5aecf94084cf8100a639868, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9066710512911442548, guid: e8585a7fb5aecf94084cf8100a639868, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9066710512911442548, guid: e8585a7fb5aecf94084cf8100a639868, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9066710512911442548, guid: e8585a7fb5aecf94084cf8100a639868, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9066710512911442548, guid: e8585a7fb5aecf94084cf8100a639868, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9066710512911442548, guid: e8585a7fb5aecf94084cf8100a639868, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e8585a7fb5aecf94084cf8100a639868, type: 3}
+--- !u!4 &2978750489501243389 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9066710512911442548, guid: e8585a7fb5aecf94084cf8100a639868, type: 3}
+  m_PrefabInstance: {fileID: 6090494958209136009}
+  m_PrefabAsset: {fileID: 0}
