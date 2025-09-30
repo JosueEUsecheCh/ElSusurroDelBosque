@@ -691,7 +691,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 347424739}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
@@ -2512,6 +2512,7 @@ MonoBehaviour:
   itemUIPrefab: {fileID: 5474435518686663927, guid: e61453526091d414aad7ac27ac0af049, type: 3}
   inventorySlotsUI: {fileID: 1421271489}
   selectedSlotIndex: -1
+  selectedGateToPlace: 
   descriptionImage: {fileID: 1426032456}
   descriptionNameText: {fileID: 552242404}
   descriptionText: {fileID: 773739233}
@@ -8180,8 +8181,8 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 2000852149}
   - {fileID: 619394802}
+  - {fileID: 2000852149}
   - {fileID: 1303837031}
   - {fileID: 1914731520}
   - {fileID: 779711153}

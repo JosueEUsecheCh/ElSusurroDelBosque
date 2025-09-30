@@ -1,7 +1,7 @@
 {
 	"projectId": 1,
 	"projectName": "SusurroDelBosque",
-	"scene": "Main",
+	"scene": "PlantaBaja",
 	"creator": "Josue Chacon",
 	"version": "2.0.3",
 	"port": 8000,

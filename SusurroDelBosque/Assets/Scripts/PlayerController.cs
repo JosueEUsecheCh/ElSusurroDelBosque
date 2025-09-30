@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Item Cooldown")]
     public float discardCooldown = 0.5f; // Tiempo de espera para soltar otro ítem
     private float lastDiscardTime = -1f; // Almacena el tiempo en que se soltó el último ítem
+    private bool circuitPanelOpen = false; 
     
     void Start()
     {
@@ -39,7 +40,11 @@ public class PlayerMovement : MonoBehaviour
         }
         
         // Busca y obtiene la referencia al script InventoryController
-        inventoryController = GameObject.FindGameObjectWithTag("general-events").GetComponent<InventoryController>();
+        GameObject eventsObject = GameObject.FindGameObjectWithTag("general-events");
+        if (eventsObject != null)
+        {
+             inventoryController = eventsObject.GetComponent<InventoryController>();
+        }
     }
 
     void Update()
@@ -92,12 +97,10 @@ public class PlayerMovement : MonoBehaviour
             {
                 inventoryController.ShowInventory(); // Muestra el inventario
                 canMove = false; // Desactiva el movimiento del jugador
-
             }
             else
             {
                 HideInventoryAndEnableMovement(); // Oculta el inventario y activa el movimiento
-                
             }
         }
         
@@ -108,52 +111,68 @@ public class PlayerMovement : MonoBehaviour
             {
                 inventoryController.DiscardSelectedItem(); // Llama al método para descartar el ítem
                 lastDiscardTime = Time.time; // Actualiza el tiempo del último descarte
-                
             }
         }
 
         // Lógica para la navegación del inventario si está visible
-        if (inventoryVisible)
+        if (inventoryVisible && inventoryController != null) // Añadido check de null
         {
+            // <--- Asegurado que se llama UpdateGateSelection en la navegación --->
             if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
             {
-                // Calcula el siguiente slot a la derecha (con un bucle que vuelve al inicio)
                 int nextSlot = (inventoryController.selectedSlotIndex + 1 + 4) % 4;
                 inventoryController.SelectSlot(nextSlot);
+                inventoryController.UpdateGateSelection(); 
             }
             else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
             {
-                // Calcula el slot anterior a la izquierda (con un bucle que vuelve al final)
                 int prevSlot = (inventoryController.selectedSlotIndex - 1 + 4) % 4;
                 inventoryController.SelectSlot(prevSlot);
+                inventoryController.UpdateGateSelection();
             }
             else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
             {
-                // Selecciona el slot de la fila de arriba (si existe)
                 int prevRow = inventoryController.selectedSlotIndex - 2;
                 if (prevRow >= 0)
                 {
                     inventoryController.SelectSlot(prevRow);
+                    inventoryController.UpdateGateSelection();
                 }
             }
             else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
             {
-                // Selecciona el slot de la fila de abajo (si existe)
                 int nextRow = inventoryController.selectedSlotIndex + 2;
                 if (nextRow < 4)
                 {
                     inventoryController.SelectSlot(nextRow);
+                    inventoryController.UpdateGateSelection();
                 }
             }
         }
+    }
+
+    public void SetCircuitPanelState(bool isOpen)
+    {
+        circuitPanelOpen = isOpen;
     }
 
     // Este método solo se llama cuando se cierra el inventario
     public void HideInventoryAndEnableMovement()
     {
         inventoryVisible = false; // Actualiza el estado de visibilidad del inventario
-        inventoryController.HideInventory(); // Llama a la función del controlador para ocultar la UI
-        canMove = true; // Activa el movimiento del jugador
+        if (inventoryController != null)
+        {
+            inventoryController.HideInventory(); // Llama a la función del controlador para ocultar la UI
+        }
+        if (!circuitPanelOpen)
+        {
+            canMove = true; // Activa el movimiento del jugador
+        }
+        else
+        {
+            Debug.Log("Movimiento Bloqueado por el circuito");
+        }
+        
     }
 
     // FixedUpdate se llama en intervalos de tiempo fijos, ideal para la física
@@ -204,7 +223,10 @@ public class PlayerMovement : MonoBehaviour
 
     public void EnableMovement()
     {
-        canMove = true; // Activa el movimiento
+        if (!circuitPanelOpen && !inventoryVisible)
+        {
+            canMove = true; // Activa el movimiento
+        }
         animator.SetBool("isPickingUp", false); // Desactiva la animación de recoger
     }
 }
