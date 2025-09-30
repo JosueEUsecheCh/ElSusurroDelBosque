@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using Unity.VisualScripting;
 
-
 public class InventoryController : MonoBehaviour
 {
     // Arrays para las referencias a los slots de UI en la jerarquía.
@@ -19,6 +18,10 @@ public class InventoryController : MonoBehaviour
     public Transform inventorySlotsUI;
     // El índice del slot que está actualmente seleccionado por el jugador. -1 significa ninguno.
     public int selectedSlotIndex = -1;
+    
+    // <--- REINCORPORADO: ESTO ES LO QUE FALTABA O ELIMINASTE --->
+    [HideInInspector] public string selectedGateToPlace = ""; 
+    // <----------------------------------------------------------->
 
     // Arrays para almacenar los datos de los ítems recogidos. La información de cada ítem se guarda en el mismo índice en todos los arrays.
     private string[] itemNames;
@@ -43,7 +46,6 @@ public class InventoryController : MonoBehaviour
     void Start()
     {
         // Inicializa todos los arrays con el tamaño máximo de slots.
-        // Esto previene errores de referencia null
         slots = new GameObject[num_slots_max];
         itemNames = new string[num_slots_max];
         itemIcons = new Sprite[num_slots_max];
@@ -51,19 +53,26 @@ public class InventoryController : MonoBehaviour
         itemPrefabNames = new string[num_slots_max];
 
         // Se asegura de que el inventario esté oculto al iniciar el juego.
-        inventoryUI.SetActive(false);
+        if (inventoryUI != null)
+        {
+            inventoryUI.SetActive(false);
+        }
+        
         // Oculta el panel de descripción al inicio.
         UpdateDescriptionDisplay();
 
         // Busca el objeto del jugador por su etiqueta una sola vez al inicio para un mejor rendimiento.
         player = GameObject.FindGameObjectWithTag("Player");
-
     }
 
     // Muestra la interfaz de usuario del inventario.
     public void ShowInventory()
     {
-        inventoryUI.SetActive(true);
+        if (inventoryUI != null)
+        {
+            inventoryUI.SetActive(true);
+        }
+        
         // Busca el primer slot que contenga un ítem para seleccionarlo por defecto.
         int firstItemIndex = -1;
         for (int i = 0; i < num_slots_max; i++)
@@ -80,7 +89,11 @@ public class InventoryController : MonoBehaviour
     // Oculta la interfaz de usuario del inventario.
     public void HideInventory()
     {
-        inventoryUI.SetActive(false);
+        if (inventoryUI != null)
+        {
+            inventoryUI.SetActive(false);
+        }
+        
         // Deselecciona el slot actual.
         SelectSlot(-1);
     }
@@ -100,7 +113,7 @@ public class InventoryController : MonoBehaviour
                 itemPrefabNames[i] = prefabName;
 
                 // Si el inventario está abierto, actualiza la UI para mostrar el ítem recién añadido.
-                if (inventoryUI.activeInHierarchy)
+                if (inventoryUI != null && inventoryUI.activeInHierarchy)
                 {
                     SelectSlot(i);
                 }
@@ -141,11 +154,9 @@ public class InventoryController : MonoBehaviour
             {
                 // Si el slot está vacío, asegura que la referencia al slot esté nula.
                 slots[i] = null;
-
             }
 
             // Cambia el color del fondo del slot para indicar si está seleccionado o no.
-            
             if (slotImage != null)
             {
                 if (i == selectedSlotIndex)
@@ -177,6 +188,67 @@ public class InventoryController : MonoBehaviour
         UpdateDescriptionDisplay();
         UpdateInventoryUI();
     }
+    
+    // <--- REINCORPORADO --->
+    public string GetSelectedItemName()
+    {
+        if (selectedSlotIndex >= 0 && selectedSlotIndex < itemNames.Length)
+        {
+            return itemNames[selectedSlotIndex];
+        }
+        return null;
+    }
+        // Método que consume el ítem seleccionado SIN soltarlo físicamente (usado por GateSlot.cs al colocar).
+    public void RemoveSelectedItem()
+    {
+        if (selectedSlotIndex != -1 && itemNames[selectedSlotIndex] != null)
+        {
+            // 1. Limpia los datos del slot
+            itemNames[selectedSlotIndex] = null;
+            itemIcons[selectedSlotIndex] = null;
+            itemDescriptions[selectedSlotIndex] = null;
+            itemPrefabNames[selectedSlotIndex] = null;
+            slots[selectedSlotIndex] = null;
+            
+            // 2. Busca el siguiente ítem para seleccionar o deselecciona.
+            int newSelectedIndex = -1;
+            for (int i = 0; i < num_slots_max; i++)
+            {
+                if (itemNames[i] != null)
+                {
+                    newSelectedIndex = i;
+                    break;
+                }
+            }
+            
+            // 3. Deselecciona y actualiza la UI
+            SelectSlot(newSelectedIndex); 
+        }
+    }
+    
+    // Método para devolver un ítem al inventario (usado por GateSlot.cs al remover).
+    public void ReturnItem(string name, Sprite icon, string description, string prefabName)
+    {
+        AddItem(name, icon, description, prefabName);
+    }
+
+    // <--- REINCORPORADO --->
+    public void UpdateGateSelection()
+    {
+        string selectedItem = GetSelectedItemName();
+
+        // Verifica si el ítem es una de las compuertas lógicas
+        if (selectedItem != null && (selectedItem.Contains("Gate_AND") || selectedItem.Contains("Gate_OR") || selectedItem.Contains("Gate_NOT")))
+        {
+            selectedGateToPlace = selectedItem;
+        }
+        else
+        {
+            // Si no es una compuerta, se borra el estado de colocación
+            selectedGateToPlace = "";
+        }
+    }
+
 
     // Actualiza el panel de descripción con los datos del ítem seleccionado.
     private void UpdateDescriptionDisplay()
@@ -184,23 +256,24 @@ public class InventoryController : MonoBehaviour
         if (selectedSlotIndex >= 0 && selectedSlotIndex < num_slots_max && itemNames[selectedSlotIndex] != null)
         {
             // Muestra la imagen, nombre y descripción del ítem seleccionado.
-            descriptionImage.sprite = itemIcons[selectedSlotIndex];
-            descriptionNameText.text = itemNames[selectedSlotIndex];
-            descriptionText.text = itemDescriptions[selectedSlotIndex];
+            // Asegúrate de que descriptionImage, descriptionNameText y descriptionText no son null
+            if (descriptionImage != null) descriptionImage.sprite = itemIcons[selectedSlotIndex];
+            if (descriptionNameText != null) descriptionNameText.text = itemNames[selectedSlotIndex];
+            if (descriptionText != null) descriptionText.text = itemDescriptions[selectedSlotIndex];
 
             // Activa todos los elementos del panel de descripción.
-            descriptionImage.enabled = true;
-            descriptionNameText.enabled = true;
-            descriptionText.enabled = true;
-            descriptionPanel.SetActive(true);
+            if (descriptionImage != null) descriptionImage.enabled = true;
+            if (descriptionNameText != null) descriptionNameText.enabled = true;
+            if (descriptionText != null) descriptionText.enabled = true;
+            if (descriptionPanel != null) descriptionPanel.SetActive(true);
         }
         else
         {
             // Oculta el panel de descripción si no hay un ítem seleccionado.
-            descriptionImage.enabled = false;
-            descriptionNameText.enabled = false;
-            descriptionText.enabled = false;
-            descriptionPanel.SetActive(false);
+            if (descriptionImage != null) descriptionImage.enabled = false;
+            if (descriptionNameText != null) descriptionNameText.enabled = false;
+            if (descriptionText != null) descriptionText.enabled = false;
+            if (descriptionPanel != null) descriptionPanel.SetActive(false);
         }
     }
 
@@ -220,9 +293,8 @@ public class InventoryController : MonoBehaviour
             itemNames[selectedSlotIndex] = null;
             itemIcons[selectedSlotIndex] = null;
             itemDescriptions[selectedSlotIndex] = null;
+            itemPrefabNames[selectedSlotIndex] = null; // Limpiar también el nombre del prefab
             slots[selectedSlotIndex] = null;
-
-            
 
             //Busca el siguiente ítem para seleccionar o deselecciona.
             int newSelectedIndex = -1;
@@ -236,14 +308,21 @@ public class InventoryController : MonoBehaviour
             }
             SelectSlot(newSelectedIndex);
 
+            // <--- REINCORPORADO: Limpiar la selección de compuertas después de soltar un ítem. --->
+            selectedGateToPlace = "";
+
             //Cierra el inventario.
             HideInventory();
 
             //Reactiva el movimiento del jugador.
             if (player != null)
             {
-                FindFirstObjectByType<PlayerMovement>().EnableMovement();
-                player.GetComponent<PlayerMovement>().HideInventoryAndEnableMovement();
+                // Usar el método que maneja el cierre de inventario y movimiento
+                PlayerMovement pm = player.GetComponent<PlayerMovement>();
+                if (pm != null)
+                {
+                     pm.HideInventoryAndEnableMovement();
+                }
             }
         }
     }
@@ -261,11 +340,11 @@ public class InventoryController : MonoBehaviour
         // Carga el prefab por su nombre desde cualquier carpeta 'Resources' en el proyecto. Esto es uan funcion de UNITY
         GameObject prefabToInstantiate = Resources.Load<GameObject>(prefabName);
 
-
         // Si el jugador existe, instancia el objeto físico cerca de él.
-        if (player != null)
+        if (player != null && prefabToInstantiate != null)
         {
-            Vector3 spawnPosition = player.transform.position + new Vector3(0.5f, 0.5f, 0f);
+            // Instancia ligeramente delante del jugador
+            Vector3 spawnPosition = player.transform.position + new Vector3(0.5f, 0.5f, 0f); 
             Instantiate(prefabToInstantiate, spawnPosition, Quaternion.identity);
         }
     }
@@ -278,19 +357,35 @@ public class InventoryController : MonoBehaviour
             itemNames[i] = null;
             itemIcons[i] = null;
             itemDescriptions[i] = null;
+            itemPrefabNames[i] = null;
         }
         UpdateInventoryUI();
     }
+    
     public bool HasSpace()
-{
-    // Recorre los slots y devuelve true tan pronto como encuentre uno vacío.
-    for (int i = 0; i < num_slots_max; i++)
     {
-        if (itemNames[i] == null)
+        // Recorre los slots y devuelve true tan pronto como encuentre uno vacío.
+        for (int i = 0; i < num_slots_max; i++)
         {
-            return true; // Se encontró un slot vacío, hay espacio.
+            if (itemNames[i] == null)
+            {
+                return true; // Se encontró un slot vacío, hay espacio.
+            }
         }
+        return false; // No se encontraron slots vacíos, el inventario está lleno.
     }
-    return false; // No se encontraron slots vacíos, el inventario está lleno.
-}
+    
+    // Método para verificar la existencia de un ítem
+    public bool ContainsItem(string itemName)
+    {
+        for (int i = 0; i < itemNames.Length; i++)
+        {
+            // Ajuste defensivo: verifica que el slot no sea nulo antes de comparar
+            if (itemNames[i] != null && itemNames[i] == itemName)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }
