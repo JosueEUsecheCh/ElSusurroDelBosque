@@ -45,7 +45,7 @@ public class MerdoController : MonoBehaviour
         {
             float distanceToPlayer = Vector3.Distance(transform.position, target.position);
 
-            // si Mitch está dentro del rango, empezar a perseguir
+            // si Mitch estï¿½ dentro del rango, empezar a perseguir
             if (distanceToPlayer <= detectionRange)
             {
                 chasingPlayer = true;
@@ -58,7 +58,7 @@ public class MerdoController : MonoBehaviour
 
         if (chasingPlayer && target != null)
         {
-            // Persecución
+            // Persecuciï¿½n
             repathTimer -= Time.deltaTime;
             if (repathTimer <= 0f)
             {
