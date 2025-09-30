@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Debug: 1
   LastVersion: 2.0.3
-  ShowGettingStartedScreen: 0
+  ShowGettingStartedScreen: 1
   UI:
     ShowUserCameras: 1
     m_showLockShaders: 1
