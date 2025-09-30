@@ -410,7 +410,18 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Freedecorations_0: 5681213714990832495
+      Freedecorations_1: -5538418290045550172
+      Freedecorations_10: 5669773350197477178
+      Freedecorations_2: -7531261126706352443
+      Freedecorations_3: 5586542733600696276
+      Freedecorations_4: 1265903681365583278
+      Freedecorations_5: 8757799791111333809
+      Freedecorations_6: 3729613832847542607
+      Freedecorations_7: -1008269029967998016
+      Freedecorations_8: 6987607918618856267
+      Freedecorations_9: -4326102789643825369
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
