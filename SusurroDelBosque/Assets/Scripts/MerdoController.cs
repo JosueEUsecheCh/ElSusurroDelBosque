@@ -58,7 +58,7 @@ public class MerdoController : MonoBehaviour
 
         if (chasingPlayer && target != null)
         {
-            // Persecuci�n
+            // Persecucion
             repathTimer -= Time.deltaTime;
             if (repathTimer <= 0f)
             {

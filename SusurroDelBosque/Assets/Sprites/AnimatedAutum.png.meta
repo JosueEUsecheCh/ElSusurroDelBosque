@@ -535,7 +535,23 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      AnimatedAutum_0: 2557818624597194641
+      AnimatedAutum_1: 790081412059385090
+      AnimatedAutum_10: 3623089722926631846
+      AnimatedAutum_11: 945630398285328544
+      AnimatedAutum_12: 8340843931094874653
+      AnimatedAutum_13: -3048195295869750144
+      AnimatedAutum_14: -8807968933612542515
+      AnimatedAutum_15: -684317898783736659
+      AnimatedAutum_2: -4403198681420640814
+      AnimatedAutum_3: -1113271786920917697
+      AnimatedAutum_4: 4330513135964276779
+      AnimatedAutum_5: -9103975987351616081
+      AnimatedAutum_6: -5133996926038840426
+      AnimatedAutum_7: -6213532794020143745
+      AnimatedAutum_8: -2686139208016437141
+      AnimatedAutum_9: 4155055546858711102
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
