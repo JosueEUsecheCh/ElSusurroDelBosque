@@ -13,7 +13,7 @@ public class StartGame : MonoBehaviour
 
     public void Quit()
     {
-        Debug.Log("Salió de Esta mierda");
+        Debug.Log("Salió del juego");
         Application.Quit();
     }
 }

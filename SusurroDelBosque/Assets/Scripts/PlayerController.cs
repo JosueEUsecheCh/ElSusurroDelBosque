@@ -6,57 +6,64 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
     // Variables de movimiento
-    public float moveSpeed = 1f; // Velocidad de movimiento del personaje
-    private Animator animator; // Referencia al componente Animator para controlar las animaciones
-    private Vector2 movement; // Vector que almacena la dirección del movimiento (X, Y)
-    private Rigidbody2D rb; // Referencia al componente Rigidbody2D para el movimiento físico
+    public float moveSpeed = 1f;
+    private Animator animator;
+    private Vector2 movement;
+    private Rigidbody2D rb;
 
-    // Variables del inventario
+    // Inventario
     [Header("Inventario")]
-    public GameObject inventario_com; // Referencia al GameObject del inventario (normalmente un Canvas)
-    private bool inventoryVisible = false; // Indica si el inventario está visible o no
+    public GameObject inventario_com;
+    private bool inventoryVisible = false;
+    private string currentAxis = "";
+    private InventoryController inventoryController;
+    private bool canMove = true;
 
-    // Variables de control de movimiento
-    private string currentAxis = ""; // Almacena el eje de movimiento actual para evitar movimiento diagonal
-    private InventoryController inventoryController; // Referencia al script que gestiona el inventario
-    private bool canMove = true; // Booleano para activar o desactivar el movimiento del jugador
-
-    // Variables para el Cooldown
+    // Cooldown
     [Header("Item Cooldown")]
-    public float discardCooldown = 0.5f; // Tiempo de espera para soltar otro ítem
-    private float lastDiscardTime = -1f; // Almacena el tiempo en que se soltó el último ítem
-    private bool circuitPanelOpen = false; 
-    
+    public float discardCooldown = 0.5f;
+    private float lastDiscardTime = -1f;
+    private bool circuitPanelOpen = false;
+
+    // Audio
+    [Header("Audio")]
+    public AudioClip sonidoCorrer; // Clip de pasos
+    private AudioSource audioSource; // Controlador de audio en el Player
+
     void Start()
     {
-        // Obtiene las referencias a los componentes necesarios en el mismo GameObject
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
 
-        // Desactiva el inventario al iniciar el juego si la referencia no es nula
+        // Configurar AudioSource
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+        audioSource.clip = sonidoCorrer;
+        audioSource.loop = true; // se repetirá mientras camina
+        audioSource.playOnAwake = false;
+
         if (inventario_com != null)
         {
             inventario_com.SetActive(false);
         }
-        
-        // Busca y obtiene la referencia al script InventoryController
+
         GameObject eventsObject = GameObject.FindGameObjectWithTag("general-events");
         if (eventsObject != null)
         {
-             inventoryController = eventsObject.GetComponent<InventoryController>();
+            inventoryController = eventsObject.GetComponent<InventoryController>();
         }
     }
 
     void Update()
     {
-        // Obtiene la entrada del teclado para el movimiento
-        float h = Input.GetAxisRaw("Horizontal"); // -1 (izquierda), 1 (derecha), 0 (sin pulsar)
-        float v = Input.GetAxisRaw("Vertical"); // -1 (abajo), 1 (arriba), 0 (sin pulsar)
+        float h = Input.GetAxisRaw("Horizontal");
+        float v = Input.GetAxisRaw("Vertical");
 
-        // Lógica para el movimiento
         if (canMove)
         {
-            // Evita el movimiento diagonal asegurando que solo un eje esté activo a la vez
             if (currentAxis == "")
             {
                 if (h != 0) currentAxis = "Horizontal";
@@ -68,7 +75,6 @@ public class PlayerMovement : MonoBehaviour
                 movement.x = h;
                 movement.y = 0;
                 if (h == 0) currentAxis = "";
-                
             }
             else if (currentAxis == "Vertical")
             {
@@ -78,51 +84,53 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                movement = Vector2.zero; // Detiene el movimiento si no se pulsa ninguna tecla
+                movement = Vector2.zero;
             }
-            UpdateAnimations(); // Llama al método para actualizar las animaciones
+
+            UpdateAnimations();
         }
         else
         {
-            // Si no puede moverse, detiene el movimiento y la animación
             movement = Vector2.zero;
             animator.SetBool("isWalking", false);
+            StopWalkingSound();
         }
 
-        // Detección de entrada para el inventario
-        if (Input.GetKeyUp(KeyCode.H) && inventario_com )
+        // Inventario
+        if (Input.GetKeyUp(KeyCode.H) && inventario_com)
         {
-            inventoryVisible = !inventoryVisible; // Invierte el estado de visibilidad
+            inventoryVisible = !inventoryVisible;
             if (inventoryVisible)
             {
-                inventoryController.ShowInventory(); // Muestra el inventario
-                canMove = false; // Desactiva el movimiento del jugador
+                inventoryController.ShowInventory();
+                canMove = false;
+                StopWalkingSound();
             }
             else
             {
-                HideInventoryAndEnableMovement(); // Oculta el inventario y activa el movimiento
-            }
-        }
-        
-        // Detección de entrada para soltar un ítem
-        if (inventoryVisible && Input.GetKeyDown(KeyCode.M)&& Time.time > lastDiscardTime + discardCooldown)
-        {
-            if (inventoryController != null)
-            {
-                inventoryController.DiscardSelectedItem(); // Llama al método para descartar el ítem
-                lastDiscardTime = Time.time; // Actualiza el tiempo del último descarte
+                HideInventoryAndEnableMovement();
             }
         }
 
-        // Lógica para la navegación del inventario si está visible
-        if (inventoryVisible && inventoryController != null) // Añadido check de null
+        // Soltar item
+        if (inventoryVisible && Input.GetKeyDown(KeyCode.M) && Time.time > lastDiscardTime + discardCooldown)
         {
-            // <--- Asegurado que se llama UpdateGateSelection en la navegación --->
+            if (inventoryController != null)
+            {
+                inventoryController.DiscardSelectedItem();
+                lastDiscardTime = Time.time;
+            }
+        }
+
+
+// Navegación inventario
+        if (inventoryVisible && inventoryController != null)
+        {
             if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
             {
                 int nextSlot = (inventoryController.selectedSlotIndex + 1 + 4) % 4;
                 inventoryController.SelectSlot(nextSlot);
-                inventoryController.UpdateGateSelection(); 
+                inventoryController.UpdateGateSelection();
             }
             else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
             {
@@ -156,77 +164,80 @@ public class PlayerMovement : MonoBehaviour
         circuitPanelOpen = isOpen;
     }
 
-    // Este método solo se llama cuando se cierra el inventario
     public void HideInventoryAndEnableMovement()
     {
-        inventoryVisible = false; // Actualiza el estado de visibilidad del inventario
+        inventoryVisible = false;
         if (inventoryController != null)
         {
-            inventoryController.HideInventory(); // Llama a la función del controlador para ocultar la UI
+            inventoryController.HideInventory();
         }
         if (!circuitPanelOpen)
         {
-            canMove = true; // Activa el movimiento del jugador
+            canMove = true;
         }
         else
         {
             Debug.Log("Movimiento Bloqueado por el circuito");
         }
-        
     }
 
-    // FixedUpdate se llama en intervalos de tiempo fijos, ideal para la física
     void FixedUpdate()
     {
         if (canMove)
         {
-            // Mueve el Rigidbody2D a la nueva posición calculada
             rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
         }
     }
 
-    // Actualiza los parámetros del Animator para controlar las animaciones de movimiento
     void UpdateAnimations()
     {
         if (movement != Vector2.zero)
         {
-            animator.SetBool("isWalking", true); // Activa la animación de caminar
+            animator.SetBool("isWalking", true);
 
-            // Determina la dirección de la animación (arriba, abajo, izquierda, derecha)
+            // Reproducir sonido solo si no está ya sonando
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+
             if (Mathf.Abs(movement.x) > Mathf.Abs(movement.y))
             {
-                if (movement.x > 0)
-                    animator.SetInteger("direction", 2); // Derecha
-                else
-                    animator.SetInteger("direction", 1); // Izquierda
+                animator.SetInteger("direction", movement.x > 0 ? 2 : 1);
             }
             else
             {
-                if (movement.y > 0)
-                    animator.SetInteger("direction", 3); // Arriba
-                else
-                    animator.SetInteger("direction", 0); // Abajo
+                animator.SetInteger("direction", movement.y > 0 ? 3 : 0);
             }
         }
         else
         {
-            animator.SetBool("isWalking", false); // Desactiva la animación si el jugador no se mueve
+            animator.SetBool("isWalking", false);
+            StopWalkingSound();
         }
     }
-    
-    // Funciones de movimiento desde otros scripts
+
+    private void StopWalkingSound()
+    {
+        if (audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
+    }
+
     public void DisableMovement()
     {
-        canMove = false; // Desactiva el movimiento
-        animator.SetBool("isWalking", false); // Detiene la animación de caminar
+        canMove = false;
+        animator.SetBool("isWalking", false);
+        StopWalkingSound();
     }
 
     public void EnableMovement()
     {
         if (!circuitPanelOpen && !inventoryVisible)
         {
-            canMove = true; // Activa el movimiento
+            canMove = true;
         }
-        animator.SetBool("isPickingUp", false); // Desactiva la animación de recoger
+        animator.SetBool("isPickingUp", false);
     }
 }
