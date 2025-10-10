@@ -29,6 +29,8 @@ public class CompuertaController : MonoBehaviour
 
     public InputSwitchSP lampE;
     public InputSwitchSP lampS;
+    public InputSwitchSP lamp_Cocina;
+    public InputSwitchSP lampH;
 
     private int lastResultA = -1;
     private int lastResultB = -1;
@@ -71,6 +73,8 @@ public class CompuertaController : MonoBehaviour
             {
                 Debug.Log("3 Compuertas: " + resultadoC);
                 lampC?.SetState(resultadoC == 1);
+                lamp_Cocina?.SetState(resultadoC == 1);
+                Debug.Log("Lamp cocina activada con: " + (resultadoC));
                 lastResultC = resultadoC;
             }
         }
@@ -83,6 +87,7 @@ public class CompuertaController : MonoBehaviour
             {
                 Debug.Log("3 Compuertas: " + resultadoD);
                 lampD?.SetState(resultadoD == 1);
+                lampH?.SetState(resultadoD == 1);
                 lastResultD = resultadoD;
             }
         }
