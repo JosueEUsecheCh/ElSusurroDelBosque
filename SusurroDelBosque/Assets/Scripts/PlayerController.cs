@@ -309,4 +309,9 @@ public class PlayerMovement : MonoBehaviour
         }
         animator.SetBool("isPickingUp", false);
     }
+    public void Quit()
+    {
+        Debug.Log("Salió del juego");
+        Application.Quit();
+    }
 }
