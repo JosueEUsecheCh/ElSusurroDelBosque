@@ -29255,6 +29255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   circuitPanelUI: {fileID: 164626120}
   requiredItemName: Destornillador
+  buttonNName: Button_N
 --- !u!114 &1344547134
 MonoBehaviour:
   m_ObjectHideFlags: 0

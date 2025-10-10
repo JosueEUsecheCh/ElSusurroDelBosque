@@ -12,18 +12,21 @@ public class PickupItem : MonoBehaviour
 
     private GameObject player;
     private bool playerIsInRange = false;
+    private PlayerMovement playerMovement; 
     private InventoryController inventoryController;
 
     void Start()
     {
         // intanciamos InventoryController
         inventoryController = FindFirstObjectByType<InventoryController>();
+        playerMovement = FindFirstObjectByType<PlayerMovement>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && playerMovement != null)
         {
+            playerMovement.currentPickupItem = this;
             player = other.gameObject;
             playerIsInRange = true;
         }
@@ -31,8 +34,12 @@ public class PickupItem : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && playerMovement != null)
         {
+            if(playerMovement.currentPickupItem == this)
+            {
+                playerMovement.currentPickupItem = null;
+            }
             player = null;
             playerIsInRange = false;
         }
@@ -42,14 +49,19 @@ public class PickupItem : MonoBehaviour
     {
         if (playerIsInRange && Input.GetKeyDown(KeyCode.B))
         {
-            if (IsPlayerStopped())
-            {
-                AttemptPickup();
-            }
+            Pickupbutton();
         }
     }
 
-    private void AttemptPickup()
+    public void Pickupbutton()
+    {
+        if (IsPlayerStopped())
+        {
+            AttemptPickup();
+        }
+    }
+
+    public void AttemptPickup()
     {
         if (inventoryController != null && inventoryController.HasSpace())
         {
@@ -61,7 +73,7 @@ public class PickupItem : MonoBehaviour
         }
     }
 
-    private bool IsPlayerStopped()
+    public bool IsPlayerStopped()
     {
         if (player != null)
         {

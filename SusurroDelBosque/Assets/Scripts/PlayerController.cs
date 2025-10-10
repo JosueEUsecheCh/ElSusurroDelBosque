@@ -2,14 +2,24 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Android;
+using UnityEngine.InputSystem.OnScreen;
 
 public class PlayerMovement : MonoBehaviour
 {
     // Variables de movimiento
     public float moveSpeed = 1f;
     private Animator animator;
-    private Vector2 movement;
+    public VirtualJoystickFloating joystick;
+    public Button button_h;
+    public Button button_b;
+    public PickupItem currentPickupItem = null;
+    public Button button_n;
+    public Button button_m;
+    private Vector2 movement  ;
     private Rigidbody2D rb;
+    
 
     // Inventario
     [Header("Inventario")]
@@ -29,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Audio")]
     public AudioClip sonidoCorrer; // Clip de pasos
     private AudioSource audioSource; // Controlador de audio en el Player
+    
 
     void Start()
     {
@@ -55,6 +66,8 @@ public class PlayerMovement : MonoBehaviour
         {
             inventoryController = eventsObject.GetComponent<InventoryController>();
         }
+
+        
     }
 
     void Update()
@@ -62,8 +75,29 @@ public class PlayerMovement : MonoBehaviour
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
+        if (joystick != null)
+        {
+            // Combinamos joystick y teclado, priorizando el joystick si se está moviendo
+            float joyH = joystick.Horizontal;
+            float joyV = joystick.Vertical;
+
+            if (Mathf.Abs(joyH) > 0.1f || Mathf.Abs(joyV) > 0.1f)
+            {
+                h = joyH;
+                v = joyV;
+            }
+        }
+
         if (canMove)
         {
+            if (Mathf.Abs(h) > Mathf.Abs(v))
+            {
+                v = 0; // Prioriza movimiento horizontal
+            }
+            else
+            {
+                h = 0; // Prioriza movimiento vertical
+            }
             if (currentAxis == "")
             {
                 if (h != 0) currentAxis = "Horizontal";
@@ -97,33 +131,19 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Inventario
-        if (Input.GetKeyUp(KeyCode.H) && inventario_com)
+        if (Input.GetKeyUp(KeyCode.H) )
         {
-            inventoryVisible = !inventoryVisible;
-            if (inventoryVisible)
-            {
-                inventoryController.ShowInventory();
-                canMove = false;
-                StopWalkingSound();
-            }
-            else
-            {
-                HideInventoryAndEnableMovement();
-            }
+            ToggleInventory();
         }
 
         // Soltar item
-        if (inventoryVisible && Input.GetKeyDown(KeyCode.M) && Time.time > lastDiscardTime + discardCooldown)
+        if (Input.GetKeyDown(KeyCode.M))
         {
-            if (inventoryController != null)
-            {
-                inventoryController.DiscardSelectedItem();
-                lastDiscardTime = Time.time;
-            }
+            DropItem();
         }
 
 
-// Navegación inventario
+        // Navegación inventario
         if (inventoryVisible && inventoryController != null)
         {
             if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
@@ -156,6 +176,55 @@ public class PlayerMovement : MonoBehaviour
                     inventoryController.UpdateGateSelection();
                 }
             }
+        }
+    }
+
+    public void DropItem()
+    {
+        if (inventoryVisible && Time.time > lastDiscardTime + discardCooldown)
+        {
+            if (inventoryController != null)
+            {
+                inventoryController.DiscardSelectedItem();
+                lastDiscardTime = Time.time;
+            }
+        }
+    }
+
+    public void ToggleInventory()
+    {
+        if (inventario_com)
+        {
+            inventoryVisible = !inventoryVisible;
+
+            if (inventoryVisible)
+            {
+                if (inventoryController != null)
+                {
+                    inventoryController.ShowInventory();
+                }
+                canMove = false;
+                StopWalkingSound();
+            }
+            else
+            {
+                HideInventoryAndEnableMovement();
+            }
+        }
+    }
+
+    public void OnPickupButtonPressed()
+    {
+        // Solo intenta recoger si hay un ítem en rango
+        if (currentPickupItem != null)
+        {
+            // Llama a la función de recogida del ítem. 
+            // Debe ser pública en PickupItem.cs (como Pickupbutton()).
+            currentPickupItem.Pickupbutton();
+        }
+        else
+        {
+            Debug.Log("No hay ningún ítem cerca para recoger.");
         }
     }
 
